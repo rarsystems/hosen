@@ -1,0 +1,2363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hosen AI Systems — Next Generation Digitization Solutions for OT &amp; IoT</title>
+<meta name="description" content="Hosen AI Systems delivers next-generation digitization solutions for Operational Technology (OT) and the Internet of Things (IoT). Based in UAE, serving the Middle East and beyond.">
+<style>
+/* ============================================================
+   RESET & DESIGN TOKENS
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#071628;
+  --navy-2:#0C2340;
+  --navy-3:#123153;
+  --navy-4:#1B4067;
+  --cyan:#00D4FF;
+  --cyan-dk:#0099CC;
+  --teal:#22E0C8;
+  --ink:#0B1B2E;
+  --body:#4A5F78;
+  --muted:#7E93AA;
+  --line:#E3EAF2;
+  --soft:#F4F8FC;
+  --white:#FFFFFF;
+  --radius:16px;
+  --radius-sm:10px;
+  --radius-lg:24px;
+  --shadow-sm:0 2px 10px rgba(7,22,40,.06);
+  --shadow:0 14px 44px rgba(7,22,40,.10);
+  --shadow-lg:0 28px 80px rgba(7,22,40,.18);
+  --maxw:1180px;
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font);
+  color:var(--body);
+  background:var(--white);
+  line-height:1.68;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit;color:inherit}
+ul{list-style:none}
+
+/* ============================================================
+   LAYOUT HELPERS
+   ============================================================ */
+.container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.section{padding:96px 0}
+.section-sm{padding:64px 0}
+.bg-soft{background:var(--soft)}
+.bg-navy{background:var(--navy);color:#C9D8E8}
+.center{text-align:center}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--cyan-dk);margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--cyan);border-radius:2px}
+.eyebrow.light{color:var(--cyan)}
+.eyebrow.center-line::after{content:"";width:22px;height:2px;background:var(--cyan);border-radius:2px}
+
+h1,h2,h3,h4{color:var(--ink);font-weight:800;line-height:1.18;letter-spacing:-.02em}
+h1{font-size:clamp(2.1rem,5vw,3.65rem)}
+h2{font-size:clamp(1.7rem,3.4vw,2.5rem)}
+h3{font-size:clamp(1.1rem,1.8vw,1.32rem);font-weight:700;letter-spacing:-.01em}
+h4{font-size:1rem;font-weight:700}
+p{color:var(--body)}
+
+.lead{font-size:1.075rem;color:var(--body);max-width:640px}
+.section-head{max-width:720px;margin-bottom:56px}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.section-head.center .lead{margin:0 auto}
+.grad{
+  background:linear-gradient(100deg,var(--cyan) 0%,var(--teal) 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+.light-text h1,.light-text h2,.light-text h3,.light-text h4{color:#fff}
+.light-text p{color:#A8BED6}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:14px 28px;border-radius:60px;font-weight:700;font-size:.94rem;
+  border:1.5px solid transparent;cursor:pointer;transition:.25s cubic-bezier(.4,0,.2,1);
+  white-space:nowrap;letter-spacing:-.01em;
+}
+.btn svg{width:16px;height:16px;transition:transform .25s}
+.btn:hover svg{transform:translateX(3px)}
+.btn-primary{
+  background:linear-gradient(100deg,var(--cyan),var(--teal));color:#04202F;
+  box-shadow:0 8px 26px rgba(0,212,255,.32);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,212,255,.42)}
+.btn-ghost{border-color:rgba(255,255,255,.28);color:#fff;background:rgba(255,255,255,.04)}
+.btn-ghost:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.5)}
+.btn-outline{border-color:var(--line);color:var(--ink);background:#fff}
+.btn-outline:hover{border-color:var(--cyan);color:var(--cyan-dk);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.btn-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+
+/* ============================================================
+   HEADER / NAV
+   ============================================================ */
+.site-header{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(7,22,40,.92);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:74px;gap:24px}
+.logo{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.logo-mark{width:38px;height:38px;flex-shrink:0}
+.logo-text{font-weight:800;font-size:1.16rem;color:#fff;letter-spacing:-.03em;line-height:1}
+.logo-text em{font-style:normal;font-weight:500;color:var(--cyan);margin-left:3px}
+.nav{display:flex;align-items:center;gap:2px}
+.nav a{
+  color:#A8BED6;font-size:.9rem;font-weight:600;padding:9px 15px;border-radius:60px;
+  transition:.2s;position:relative;white-space:nowrap;
+}
+.nav a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.nav a.active{color:#fff;background:rgba(0,212,255,.14)}
+.nav a.nav-cta{
+  background:linear-gradient(100deg,var(--cyan),var(--teal));color:#04202F;
+  margin-left:10px;padding:10px 22px;
+}
+.nav a.nav-cta:hover{box-shadow:0 8px 22px rgba(0,212,255,.36);transform:translateY(-1px)}
+.nav a.nav-cta.active{background:linear-gradient(100deg,var(--cyan),var(--teal));color:#04202F}
+.menu-btn{
+  display:none;width:42px;height:42px;border:none;background:rgba(255,255,255,.08);
+  border-radius:10px;cursor:pointer;position:relative;
+}
+.menu-btn span{
+  position:absolute;left:11px;width:20px;height:2px;background:#fff;border-radius:2px;
+  transition:.3s;
+}
+.menu-btn span:nth-child(1){top:14px}
+.menu-btn span:nth-child(2){top:20px}
+.menu-btn span:nth-child(3){top:26px}
+.menu-btn.open span:nth-child(1){top:20px;transform:rotate(45deg)}
+.menu-btn.open span:nth-child(2){opacity:0}
+.menu-btn.open span:nth-child(3){top:20px;transform:rotate(-45deg)}
+
+/* ============================================================
+   PAGES
+   ============================================================ */
+.page{display:none}
+.page.active{display:block;animation:fade .45s ease}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ============================================================
+   HERO (HOME)
+   ============================================================ */
+.hero{
+  position:relative;background:var(--navy);overflow:hidden;
+  padding:104px 0 112px;
+}
+.hero-bg{position:absolute;inset:0;opacity:.5;pointer-events:none}
+.hero-bg svg{width:100%;height:100%}
+.hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(900px 480px at 82% 8%, rgba(0,212,255,.20), transparent 62%),
+    radial-gradient(700px 500px at 6% 96%, rgba(34,224,200,.13), transparent 65%);
+}
+.hero-inner{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:center;
+}
+.hero h1{color:#fff;margin-bottom:22px}
+.hero p.hero-sub{color:#A8BED6;font-size:1.1rem;max-width:540px;margin-bottom:34px}
+.hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+.badge{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:.78rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  color:#BFE9F7;background:rgba(0,212,255,.09);
+  border:1px solid rgba(0,212,255,.24);padding:7px 14px;border-radius:60px;
+}
+.badge i{width:6px;height:6px;border-radius:50%;background:var(--teal);display:block}
+.hero-visual{position:relative}
+.hero-visual svg{width:100%;height:auto;filter:drop-shadow(0 30px 60px rgba(0,0,0,.45))}
+.float-card{
+  position:absolute;background:rgba(255,255,255,.97);border-radius:14px;
+  padding:13px 17px;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:11px;
+  animation:bob 5s ease-in-out infinite;
+}
+.float-card .fc-ic{
+  width:34px;height:34px;border-radius:9px;display:grid;place-items:center;flex-shrink:0;
+  background:linear-gradient(135deg,rgba(0,212,255,.16),rgba(34,224,200,.16));color:var(--cyan-dk);
+}
+.float-card .fc-ic svg{width:17px;height:17px}
+.float-card b{display:block;font-size:.82rem;color:var(--ink);line-height:1.25}
+.float-card small{font-size:.7rem;color:var(--muted);letter-spacing:.03em}
+.fc-1{top:6%;left:-6%;animation-delay:0s}
+.fc-2{bottom:9%;right:-4%;animation-delay:1.6s}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+
+/* ============================================================
+   STATS BAR
+   ============================================================ */
+.stats{background:var(--navy-2);border-top:1px solid rgba(255,255,255,.07);padding:0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat{
+  padding:38px 26px;text-align:center;border-right:1px solid rgba(255,255,255,.08);
+}
+.stat:last-child{border-right:none}
+.stat .num{
+  font-size:clamp(1.7rem,3vw,2.25rem);font-weight:800;letter-spacing:-.03em;line-height:1;
+  background:linear-gradient(100deg,var(--cyan),var(--teal));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  margin-bottom:8px;
+}
+.stat .lbl{font-size:.82rem;color:#8FA9C4;font-weight:600;letter-spacing:.03em}
+
+/* ============================================================
+   CARDS & GRIDS
+   ============================================================ */
+.grid{display:grid;gap:24px}
+.g-2{grid-template-columns:repeat(2,1fr)}
+.g-3{grid-template-columns:repeat(3,1fr)}
+.g-4{grid-template-columns:repeat(4,1fr)}
+
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:32px 28px;transition:.3s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;
+}
+.card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--cyan),var(--teal));
+  transform:scaleX(0);transform-origin:left;transition:transform .35s;
+}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#D3E2EF}
+.card:hover::before{transform:scaleX(1)}
+.card h3{margin-bottom:10px}
+.card p{font-size:.94rem}
+.card-ic{
+  width:54px;height:54px;border-radius:14px;display:grid;place-items:center;margin-bottom:20px;
+  background:linear-gradient(135deg,rgba(0,212,255,.13),rgba(34,224,200,.13));
+  color:var(--cyan-dk);transition:.3s;
+}
+.card:hover .card-ic{
+  background:linear-gradient(135deg,var(--cyan),var(--teal));color:#04202F;
+  transform:scale(1.06) rotate(-3deg);
+}
+.card-ic svg{width:25px;height:25px;stroke-width:1.9}
+.card-dark{
+  background:var(--navy-2);border-color:rgba(255,255,255,.09);
+}
+.card-dark h3{color:#fff}
+.card-dark p{color:#9FB6CE}
+.card-dark:hover{border-color:rgba(0,212,255,.35);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.card-dark .card-ic{background:rgba(0,212,255,.12);color:var(--cyan)}
+.card-dark:hover .card-ic{background:linear-gradient(135deg,var(--cyan),var(--teal));color:#04202F}
+
+.card-link{
+  display:inline-flex;align-items:center;gap:7px;margin-top:18px;
+  font-size:.87rem;font-weight:700;color:var(--cyan-dk);transition:gap .25s;
+}
+.card-link svg{width:14px;height:14px}
+.card:hover .card-link{gap:12px}
+
+/* ============================================================
+   SPLIT (2-col image + copy)
+   ============================================================ */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.split.reverse .split-media{order:2}
+.split-media svg{width:100%;height:auto}
+
+/* ============================================================
+   CHECK LIST
+   ============================================================ */
+.check-list{display:grid;gap:16px;margin-top:30px}
+.check-list li{display:flex;gap:14px;align-items:flex-start;font-size:.95rem}
+.check-list .tick{
+  width:24px;height:24px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--cyan),var(--teal));color:#04202F;margin-top:1px;
+}
+.check-list .tick svg{width:13px;height:13px;stroke-width:3.2}
+.check-list strong{color:var(--ink);display:block;font-weight:700;font-size:.97rem}
+
+/* ============================================================
+   SERVICE DETAIL BLOCKS
+   ============================================================ */
+.svc{
+  display:grid;grid-template-columns:64px 1fr;gap:28px;
+  padding:38px 0;border-bottom:1px solid var(--line);
+}
+.svc:last-child{border-bottom:none}
+.svc-num{
+  width:64px;height:64px;border-radius:16px;display:grid;place-items:center;
+  background:linear-gradient(135deg,rgba(0,212,255,.13),rgba(34,224,200,.13));
+  color:var(--cyan-dk);font-weight:800;font-size:1.25rem;letter-spacing:-.02em;flex-shrink:0;
+}
+.svc-body h3{margin-bottom:10px}
+.svc-body p{margin-bottom:16px;max-width:760px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{
+  font-size:.76rem;font-weight:700;letter-spacing:.03em;color:var(--navy-3);
+  background:var(--soft);border:1px solid var(--line);padding:5px 12px;border-radius:60px;
+}
+
+/* ============================================================
+   STEPS / PROCESS
+   ============================================================ */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:20px}
+.step{padding:0 24px;position:relative;text-align:center}
+.step::after{
+  content:"";position:absolute;top:26px;left:calc(50% + 34px);right:calc(-50% + 34px);
+  height:2px;background:linear-gradient(90deg,rgba(0,212,255,.5),rgba(0,212,255,.08));
+}
+.step:last-child::after{display:none}
+.step-num{
+  width:54px;height:54px;border-radius:50%;margin:0 auto 20px;display:grid;place-items:center;
+  background:var(--navy);color:var(--cyan);font-weight:800;font-size:1.05rem;
+  border:2px solid rgba(0,212,255,.35);position:relative;z-index:2;
+}
+.step h4{margin-bottom:9px;font-size:1rem}
+.step p{font-size:.88rem}
+
+/* ============================================================
+   INDUSTRY CARDS
+   ============================================================ */
+.ind-card{
+  border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);
+  background:#fff;transition:.3s;display:flex;flex-direction:column;
+}
+.ind-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#D3E2EF}
+.ind-top{
+  height:150px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--navy),var(--navy-3));
+}
+.ind-top svg{width:100%;height:100%}
+.ind-body{padding:26px 26px 30px;flex:1;display:flex;flex-direction:column}
+.ind-body h3{margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.ind-body h3 svg{width:20px;height:20px;color:var(--cyan-dk);flex-shrink:0;stroke-width:2}
+.ind-body p{font-size:.92rem;flex:1}
+
+/* ============================================================
+   PAGE HERO (inner pages)
+   ============================================================ */
+.page-hero{
+  position:relative;background:var(--navy);padding:82px 0 76px;overflow:hidden;
+}
+.page-hero::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(760px 380px at 78% 0%, rgba(0,212,255,.18), transparent 62%);
+}
+.page-hero .container{position:relative;z-index:2}
+.page-hero h1{color:#fff;font-size:clamp(1.9rem,4vw,2.9rem);margin-bottom:16px}
+.page-hero p{color:#A8BED6;max-width:660px;font-size:1.05rem}
+.crumb{
+  font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--cyan);margin-bottom:16px;display:block;
+}
+
+/* ============================================================
+   CTA BAND
+   ============================================================ */
+.cta-band{
+  position:relative;background:linear-gradient(115deg,var(--navy) 0%,var(--navy-3) 100%);
+  border-radius:var(--radius-lg);padding:64px 56px;overflow:hidden;
+  display:grid;grid-template-columns:1.4fr auto;gap:44px;align-items:center;
+}
+.cta-band::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(600px 300px at 88% 100%, rgba(34,224,200,.20), transparent 62%);
+  pointer-events:none;
+}
+.cta-band > *{position:relative;z-index:2}
+.cta-band h2{color:#fff;margin-bottom:14px;font-size:clamp(1.5rem,2.6vw,2.05rem)}
+.cta-band p{color:#A8BED6;max-width:560px;font-size:.98rem}
+
+/* ============================================================
+   INSIGHTS
+   ============================================================ */
+.post{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;transition:.3s;display:flex;flex-direction:column;
+}
+.post:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#D3E2EF}
+.post-img{height:170px;background:linear-gradient(135deg,var(--navy),var(--navy-3));overflow:hidden}
+.post-img svg{width:100%;height:100%}
+.post-body{padding:26px 26px 30px;flex:1;display:flex;flex-direction:column}
+.post-meta{display:flex;gap:12px;align-items:center;font-size:.76rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--cyan-dk);margin-bottom:12px}
+.post-meta .dot{width:4px;height:4px;border-radius:50%;background:var(--muted)}
+.post-body h3{font-size:1.08rem;margin-bottom:11px;line-height:1.35}
+.post-body p{font-size:.9rem;flex:1}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.info-card{
+  display:flex;gap:16px;align-items:flex-start;padding:22px 0;border-bottom:1px solid var(--line);
+}
+.info-card:last-of-type{border-bottom:none}
+.info-ic{
+  width:46px;height:46px;border-radius:13px;flex-shrink:0;display:grid;place-items:center;
+  background:linear-gradient(135deg,rgba(0,212,255,.13),rgba(34,224,200,.13));color:var(--cyan-dk);
+}
+.info-ic svg{width:21px;height:21px;stroke-width:1.9}
+.info-card b{display:block;color:var(--ink);font-size:.95rem;margin-bottom:3px;font-weight:700}
+.info-card span{font-size:.92rem;color:var(--body)}
+
+.form-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:40px;box-shadow:var(--shadow-sm);
+}
+.field{margin-bottom:20px}
+.field label{
+  display:block;font-size:.83rem;font-weight:700;color:var(--ink);
+  margin-bottom:8px;letter-spacing:.01em;
+}
+.field label .req{color:var(--cyan-dk)}
+.field input,.field textarea,.field select{
+  width:100%;padding:13px 16px;border:1.5px solid var(--line);border-radius:var(--radius-sm);
+  background:var(--soft);transition:.22s;font-size:.94rem;color:var(--ink);
+}
+.field textarea{min-height:132px;resize:vertical}
+.field input:focus,.field textarea:focus,.field select:focus{
+  outline:none;border-color:var(--cyan);background:#fff;
+  box-shadow:0 0 0 4px rgba(0,212,255,.12);
+}
+.field input::placeholder,.field textarea::placeholder{color:#9DB0C4}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form-note{font-size:.82rem;color:var(--muted);margin-top:16px}
+.form-success{
+  display:none;background:linear-gradient(135deg,rgba(0,212,255,.09),rgba(34,224,200,.09));
+  border:1.5px solid rgba(0,212,255,.35);border-radius:var(--radius-sm);
+  padding:18px 20px;margin-bottom:24px;color:var(--navy-3);font-size:.93rem;font-weight:600;
+}
+.form-success.show{display:block;animation:fade .4s ease}
+
+/* ============================================================
+   REVEAL ANIMATION
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer{background:var(--navy);padding:72px 0 0;color:#8FA9C4}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:48px;padding-bottom:56px}
+.footer-brand .logo{margin-bottom:20px}
+.footer-brand p{font-size:.9rem;color:#8FA9C4;max-width:300px;margin-bottom:22px}
+.socials{display:flex;gap:10px}
+.socials a{
+  width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
+  background:rgba(255,255,255,.06);color:#A8BED6;transition:.25s;
+}
+.socials a:hover{background:linear-gradient(135deg,var(--cyan),var(--teal));color:#04202F;transform:translateY(-3px)}
+.socials svg{width:17px;height:17px}
+.footer-col h4{color:#fff;font-size:.82rem;letter-spacing:.13em;text-transform:uppercase;margin-bottom:22px;font-weight:700}
+.footer-col ul{display:grid;gap:11px}
+.footer-col a{font-size:.9rem;color:#8FA9C4;transition:.2s}
+.footer-col a:hover{color:var(--cyan);padding-left:4px}
+.footer-col address{font-style:normal;font-size:.9rem;line-height:1.9}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.08);padding:26px 0;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+  font-size:.84rem;
+}
+.footer-bottom a:hover{color:var(--cyan)}
+.footer-legal{display:flex;gap:22px}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:1080px){
+  .hero-inner{grid-template-columns:1fr;gap:52px}
+  .hero-visual{max-width:520px;margin:0 auto;width:100%}
+  .fc-1{left:0}.fc-2{right:0}
+  .g-4{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr);gap:40px 0}
+  .step::after{display:none}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:40px}
+}
+@media(max-width:960px){
+  .menu-btn{display:block}
+  .nav{
+    position:fixed;top:74px;left:0;right:0;flex-direction:column;align-items:stretch;
+    background:var(--navy);padding:18px 20px 26px;gap:4px;
+    border-top:1px solid rgba(255,255,255,.08);
+    box-shadow:0 24px 40px rgba(0,0,0,.4);
+    transform:translateY(-140%);transition:transform .38s cubic-bezier(.4,0,.2,1);
+    max-height:calc(100vh - 74px);overflow-y:auto;
+  }
+  .nav.open{transform:translateY(0)}
+  .nav a{padding:13px 18px;border-radius:12px;font-size:.95rem}
+  .nav a.nav-cta{margin-left:0;margin-top:8px;justify-content:center;text-align:center}
+  .split{grid-template-columns:1fr;gap:44px}
+  .split.reverse .split-media{order:0}
+  .contact-grid{grid-template-columns:1fr;gap:40px}
+  .cta-band{grid-template-columns:1fr;padding:48px 32px;gap:28px}
+}
+@media(max-width:760px){
+  .section{padding:68px 0}
+  .section-sm{padding:50px 0}
+  .container{padding:0 20px}
+  .g-2,.g-3,.g-4{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.08);padding:28px 16px}
+  .stat:nth-child(odd){border-right:1px solid rgba(255,255,255,.08)}
+  .stat:nth-last-child(-n+2){border-bottom:none}
+  .steps{grid-template-columns:1fr}
+  .svc{grid-template-columns:1fr;gap:18px}
+  .form-row{grid-template-columns:1fr}
+  .form-card{padding:28px 22px}
+  .footer-grid{grid-template-columns:1fr;gap:36px}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .hero{padding:76px 0 84px}
+  .page-hero{padding:60px 0 56px}
+  .cta-band{padding:40px 24px;border-radius:18px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="#home" onclick="navigate('home');return false;">
+      <svg class="logo-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lg1" x1="0" y1="0" x2="48" y2="48">
+            <stop offset="0%" stop-color="#00D4FF"/>
+            <stop offset="100%" stop-color="#22E0C8"/>
+          </linearGradient>
+        </defs>
+        <path d="M24 3 L42 13.5 V34.5 L24 45 L6 34.5 V13.5 Z" stroke="url(#lg1)" stroke-width="2.4" fill="rgba(0,212,255,0.07)"/>
+        <circle cx="24" cy="24" r="4.2" fill="url(#lg1)"/>
+        <circle cx="24" cy="11" r="2.4" fill="#00D4FF"/>
+        <circle cx="35.5" cy="30.5" r="2.4" fill="#22E0C8"/>
+        <circle cx="12.5" cy="30.5" r="2.4" fill="#00D4FF"/>
+        <path d="M24 11 V19.8 M27.6 26.3 L33.8 29.2 M20.4 26.3 L14.2 29.2" stroke="url(#lg1)" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <span class="logo-text">Hosen<em>Systems</em></span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="#home" data-page="home">Home</a>
+      <a href="#about" data-page="about">About</a>
+      <a href="#services" data-page="services">Services</a>
+      <a href="#industries" data-page="industries">Industries</a>
+      <a href="#technology" data-page="technology">Technology</a>
+      <a href="#insights" data-page="insights">Insights</a>
+      <a href="#contact" data-page="contact" class="nav-cta">Contact Us</a>
+    </nav>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================================================
+     PAGE: HOME
+     ============================================================ -->
+<div class="page" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <svg viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+            <path d="M56 0H0V56" fill="none" stroke="rgba(0,212,255,0.07)" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect width="1440" height="700" fill="url(#grid)"/>
+        <g stroke="rgba(0,212,255,0.16)" stroke-width="1" fill="none">
+          <path d="M120 520 L340 380 L560 450 L780 250 L1010 320 L1240 160"/>
+          <path d="M120 600 L360 500 L620 560 L880 400 L1140 460 L1360 300"/>
+        </g>
+        <g fill="#00D4FF" opacity="0.55">
+          <circle cx="120" cy="520" r="3.5"/><circle cx="340" cy="380" r="3.5"/>
+          <circle cx="560" cy="450" r="3.5"/><circle cx="780" cy="250" r="3.5"/>
+          <circle cx="1010" cy="320" r="3.5"/><circle cx="1240" cy="160" r="3.5"/>
+        </g>
+        <g fill="#22E0C8" opacity="0.4">
+          <circle cx="360" cy="500" r="2.8"/><circle cx="620" cy="560" r="2.8"/>
+          <circle cx="880" cy="400" r="2.8"/><circle cx="1140" cy="460" r="2.8"/>
+          <circle cx="1360" cy="300" r="2.8"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow light">OT · IoT · Industry 4.0</span>
+        <h1>Transforming OT and IoT for a <span class="grad">Smarter Future</span></h1>
+        <p class="hero-sub">
+          Hosen AI Systems delivers next-generation digitization solutions that bridge operational
+          technology with intelligent IoT connectivity — built for reliability, security and scale.
+        </p>
+        <div class="hero-badges">
+          <span class="badge"><i></i>Edge Computing</span>
+          <span class="badge"><i></i>Industrial IoT</span>
+          <span class="badge"><i></i>OT Cybersecurity</span>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#services" onclick="navigate('services');return false;">
+            Explore Solutions
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#contact" onclick="navigate('contact');return false;">Talk to an Expert</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <!-- Dashboard illustration -->
+        <svg viewBox="0 0 540 430" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="panelG" x1="0" y1="0" x2="540" y2="430">
+              <stop offset="0%" stop-color="#0C2340"/>
+              <stop offset="100%" stop-color="#0A1D34"/>
+            </linearGradient>
+            <linearGradient id="lineG" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#00D4FF"/>
+              <stop offset="100%" stop-color="#22E0C8"/>
+            </linearGradient>
+            <linearGradient id="fillG" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#00D4FF" stop-opacity="0"/>
+            </linearGradient>
+            <filter id="glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+
+          <ellipse cx="270" cy="400" rx="200" ry="26" fill="#00D4FF" opacity="0.10" filter="url(#glow)"/>
+
+          <!-- Main panel -->
+          <rect x="26" y="26" width="488" height="368" rx="22" fill="url(#panelG)" stroke="#1B4067" stroke-width="1.5"/>
+
+          <!-- Window dots -->
+          <circle cx="56" cy="56" r="5" fill="#FF6B6B" opacity="0.7"/>
+          <circle cx="76" cy="56" r="5" fill="#FFD166" opacity="0.7"/>
+          <circle cx="96" cy="56" r="5" fill="#22E0C8" opacity="0.8"/>
+          <rect x="356" y="46" width="128" height="20" rx="10" fill="#123153"/>
+          <rect x="366" y="53" width="52" height="6" rx="3" fill="#00D4FF" opacity="0.6"/>
+
+          <!-- Divider -->
+          <line x1="26" y1="84" x2="514" y2="84" stroke="#1B4067" stroke-width="1.4"/>
+
+          <!-- Sidebar -->
+          <rect x="50" y="106" width="106" height="9" rx="4.5" fill="#1B4067"/>
+          <rect x="50" y="132" width="76" height="9" rx="4.5" fill="#123153"/>
+          <rect x="50" y="158" width="92" height="9" rx="4.5" fill="#123153"/>
+          <rect x="50" y="184" width="64" height="9" rx="4.5" fill="#123153"/>
+
+          <!-- Chart grid -->
+          <g stroke="#16375A" stroke-width="1" stroke-dasharray="4 6">
+            <line x1="182" y1="130" x2="486" y2="130"/>
+            <line x1="182" y1="176" x2="486" y2="176"/>
+            <line x1="182" y1="222" x2="486" y2="222"/>
+            <line x1="182" y1="268" x2="486" y2="268"/>
+          </g>
+
+          <!-- Chart fill -->
+          <path d="M182 268 L226 236 L270 250 L314 190 L358 208 L402 156 L446 172 L486 128 L486 288 L182 288 Z" fill="url(#fillG)"/>
+          <!-- Chart line -->
+          <path d="M182 268 L226 236 L270 250 L314 190 L358 208 L402 156 L446 172 L486 128"
+                stroke="url(#lineG)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+          <!-- Points -->
+          <g fill="#0C2340" stroke="#00D4FF" stroke-width="2.4">
+            <circle cx="226" cy="236" r="4.5"/><circle cx="314" cy="190" r="4.5"/>
+            <circle cx="402" cy="156" r="4.5"/><circle cx="486" cy="128" r="4.5"/>
+          </g>
+
+          <!-- Bottom stat pills -->
+          <rect x="50" y="316" width="136" height="56" rx="12" fill="#123153"/>
+          <rect x="66" y="332" width="42" height="7" rx="3.5" fill="#22E0C8" opacity="0.8"/>
+          <rect x="66" y="348" width="76" height="10" rx="5" fill="#00D4FF" opacity="0.5"/>
+
+          <rect x="200" y="316" width="136" height="56" rx="12" fill="#123153"/>
+          <rect x="216" y="332" width="42" height="7" rx="3.5" fill="#00D4FF" opacity="0.8"/>
+          <rect x="216" y="348" width="60" height="10" rx="5" fill="#22E0C8" opacity="0.5"/>
+
+          <rect x="350" y="316" width="136" height="56" rx="12" fill="#123153"/>
+          <rect x="366" y="332" width="42" height="7" rx="3.5" fill="#22E0C8" opacity="0.8"/>
+          <rect x="366" y="348" width="88" height="10" rx="5" fill="#00D4FF" opacity="0.5"/>
+        </svg>
+
+        <div class="float-card fc-1">
+          <div class="fc-ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div><b>99.98% Uptime</b><small>EDGE GATEWAYS</small></div>
+        </div>
+
+        <div class="float-card fc-2">
+          <div class="fc-ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div><b>Zero-Trust OT</b><small>SECURE BY DESIGN</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat"><div class="num">15+</div><div class="lbl">Years Combined Expertise</div></div>
+        <div class="stat"><div class="num">6</div><div class="lbl">Core Industries Served</div></div>
+        <div class="stat"><div class="num">24/7</div><div class="lbl">Technical Support</div></div>
+        <div class="stat"><div class="num">100%</div><div class="lbl">Vendor-Agnostic Approach</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT PREVIEW -->
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div class="split-media reveal">
+          <svg viewBox="0 0 560 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="ab1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#00D4FF"/><stop offset="100%" stop-color="#22E0C8"/>
+              </linearGradient>
+              <linearGradient id="ab2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0C2340"/><stop offset="100%" stop-color="#123153"/>
+              </linearGradient>
+            </defs>
+
+            <rect x="0" y="30" width="560" height="360" rx="24" fill="#F4F8FC"/>
+
+            <!-- OT block -->
+            <rect x="34" y="98" width="150" height="224" rx="18" fill="url(#ab2)"/>
+            <rect x="58" y="126" width="58" height="9" rx="4.5" fill="#00D4FF" opacity="0.85"/>
+            <rect x="58" y="146" width="90" height="7" rx="3.5" fill="#2A5480"/>
+            <rect x="58" y="164" width="74" height="7" rx="3.5" fill="#2A5480"/>
+            <rect x="58" y="196" width="102" height="44" rx="10" fill="#0A1D34" stroke="#1B4067"/>
+            <rect x="72" y="212" width="46" height="6" rx="3" fill="#22E0C8" opacity="0.7"/>
+            <rect x="58" y="256" width="102" height="44" rx="10" fill="#0A1D34" stroke="#1B4067"/>
+            <rect x="72" y="272" width="60" height="6" rx="3" fill="#00D4FF" opacity="0.7"/>
+            <text x="109" y="86" fill="#4A5F78" font-family="Inter,Arial" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="1">OT LAYER</text>
+
+            <!-- Gateway -->
+            <circle cx="280" cy="210" r="52" fill="#fff" stroke="url(#ab1)" stroke-width="3"/>
+            <circle cx="280" cy="210" r="36" fill="#F4F8FC"/>
+            <path d="M280 190 L296 199 V221 L280 230 L264 221 V199 Z" stroke="url(#ab1)" stroke-width="2.4" fill="rgba(0,212,255,0.1)"/>
+            <circle cx="280" cy="210" r="4.5" fill="url(#ab1)"/>
+            <text x="280" y="292" fill="#0B1B2E" font-family="Inter,Arial" font-size="12.5" font-weight="800" text-anchor="middle" letter-spacing="0.6">EDGE GATEWAY</text>
+
+            <!-- IoT / Cloud block -->
+            <rect x="376" y="98" width="150" height="224" rx="18" fill="#fff" stroke="#E3EAF2" stroke-width="1.5"/>
+            <rect x="400" y="126" width="58" height="9" rx="4.5" fill="#22E0C8"/>
+            <rect x="400" y="146" width="90" height="7" rx="3.5" fill="#DCE6F0"/>
+            <rect x="400" y="164" width="74" height="7" rx="3.5" fill="#DCE6F0"/>
+            <rect x="400" y="196" width="102" height="44" rx="10" fill="#F4F8FC"/>
+            <rect x="414" y="212" width="46" height="6" rx="3" fill="#00D4FF" opacity="0.8"/>
+            <rect x="400" y="256" width="102" height="44" rx="10" fill="#F4F8FC"/>
+            <rect x="414" y="272" width="60" height="6" rx="3" fill="#22E0C8" opacity="0.8"/>
+            <text x="451" y="86" fill="#4A5F78" font-family="Inter,Arial" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="1">CLOUD / AI</text>
+
+            <!-- Connecting lines -->
+            <path d="M184 210 H228" stroke="url(#ab1)" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="6 6"/>
+            <path d="M332 210 H376" stroke="url(#ab1)" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="6 6"/>
+            <circle cx="206" cy="210" r="4" fill="#00D4FF"/>
+            <circle cx="354" cy="210" r="4" fill="#22E0C8"/>
+          </svg>
+        </div>
+
+        <div class="reveal">
+          <span class="eyebrow">About Hosen AI Systems</span>
+          <h2>Bridging Operational Technology with Intelligent IoT</h2>
+          <p class="lead" style="margin-top:18px">
+            Hosen AI Systems is at the forefront of developing next-generation digitization solutions.
+            Our focus on Operational Technology (OT) and the Internet of Things (IoT) redefines
+            how industries operate — connecting legacy systems with modern intelligence to unlock
+            efficiency, visibility and control.
+          </p>
+          <ul class="check-list">
+            <li>
+              <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><strong>OT + IoT Expertise</strong>Deep domain knowledge across industrial control systems and modern IoT architecture.</span>
+            </li>
+            <li>
+              <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><strong>Security-First Design</strong>End-to-end protection from edge devices to cloud platforms.</span>
+            </li>
+            <li>
+              <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><strong>Tailored Delivery</strong>Every deployment is engineered around your operational environment.</span>
+            </li>
+          </ul>
+          <div class="btn-row" style="margin-top:34px">
+            <a class="btn btn-outline" href="#about" onclick="navigate('about');return false;">
+              More About Us
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow center-line">Core Services</span>
+        <h2>Next-Generation Digitization Solutions</h2>
+        <p class="lead" style="margin-top:16px">
+          From strategy and architecture to deployment and managed operations — we cover the
+          full lifecycle of industrial digitization.
+        </p>
+      </div>
+
+      <div class="grid g-3">
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+          <h3>OT/IoT Consulting &amp; Strategy</h3>
+          <p>Roadmap development, architecture design and technology selection for industrial digitization initiatives.</p>
+          <a class="card-link" href="#services" onclick="navigate('services');return false;">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+          <h3>System Integration</h3>
+          <p>Seamless integration of legacy OT systems with modern IoT platforms, cloud services and enterprise applications.</p>
+          <a class="card-link" href="#services" onclick="navigate('services');return false;">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></div>
+          <h3>Edge Computing &amp; Connectivity</h3>
+          <p>Industrial-grade edge devices, gateways and connectivity for real-time data processing at the source.</p>
+          <a class="card-link" href="#services" onclick="navigate('services');return false;">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <h3>Data Analytics &amp; AI</h3>
+          <p>Turning operational data into actionable insight with AI/ML models for predictive maintenance and optimization.</p>
+          <a class="card-link" href="#services" onclick="navigate('services');return false;">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <h3>Cybersecurity for OT</h3>
+          <p>Protecting ICS and SCADA environments with zero-trust architectures and continuous monitoring.</p>
+          <a class="card-link" href="#services" onclick="navigate('services');return false;">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+          <h3>Managed IoT Services</h3>
+          <p>End-to-end management of your IoT ecosystem — from device provisioning to platform operations.</p>
+          <a class="card-link" href="#services" onclick="navigate('services');return false;">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES PREVIEW -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow center-line">Industries</span>
+        <h2>Digitizing Critical Industries</h2>
+        <p class="lead" style="margin-top:16px">
+          We work where downtime is not an option — in the field, on the factory floor and at the edge of the grid.
+        </p>
+      </div>
+
+      <div class="grid g-3">
+        <!-- Manufacturing -->
+        <div class="ind-card reveal">
+          <div class="ind-top">
+            <svg viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="ind1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0C2340"/><stop offset="100%" stop-color="#164066"/></linearGradient></defs>
+              <rect width="400" height="150" fill="url(#ind1)"/>
+              <g stroke="rgba(0,212,255,0.22)" stroke-width="1.6" fill="none">
+                <path d="M40 118 V74 l30 18 V74 l30 18 V74 l30 18 V74 l30 18 V74 l30 18 V74 l30 18"/>
+                <rect x="40" y="118" width="240" height="6" fill="rgba(0,212,255,0.25)" stroke="none"/>
+              </g>
+              <g fill="#00D4FF" opacity="0.55">
+                <circle cx="70" cy="46" r="3"/><circle cx="130" cy="46" r="3"/><circle cx="190" cy="46" r="3"/><circle cx="250" cy="46" r="3"/>
+              </g>
+              <path d="M40 46 H250" stroke="rgba(34,224,200,0.3)" stroke-width="1.4" stroke-dasharray="5 6"/>
+            </svg>
+          </div>
+          <div class="ind-body">
+            <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20V9l-6 4V9l-6 4V4H2z"/><path d="M6 20v-4M11 20v-4M16 20v-4"/></svg> Manufacturing</h3>
+            <p>Smart factory connectivity, predictive maintenance and real-time quality analytics across production lines.</p>
+          </div>
+        </div>
+
+        <!-- Energy -->
+        <div class="ind-card reveal">
+          <div class="ind-top">
+            <svg viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="ind2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0C2340"/><stop offset="100%" stop-color="#164066"/></linearGradient></defs>
+              <rect width="400" height="150" fill="url(#ind2)"/>
+              <g stroke="rgba(0,212,255,0.35)" stroke-width="2" fill="none" stroke-linecap="round">
+                <path d="M90 124 V56 M160 124 V36 M230 124 V70"/>
+              </g>
+              <g stroke="rgba(34,224,200,0.3)" stroke-width="1.4" fill="none">
+                <path d="M60 86 H270 M60 66 H270"/>
+              </g>
+              <g fill="#22E0C8" opacity="0.6">
+                <circle cx="90" cy="56" r="4"/><circle cx="160" cy="36" r="4"/><circle cx="230" cy="70" r="4"/>
+              </g>
+              <path d="M290 40 l-14 34 h14 l-12 34" stroke="#00D4FF" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+            </svg>
+          </div>
+          <div class="ind-body">
+            <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Energy &amp; Utilities</h3>
+            <p>Grid monitoring, remote asset management and smart metering for resilient power infrastructure.</p>
+          </div>
+        </div>
+
+        <!-- Oil & Gas -->
+        <div class="ind-card reveal">
+          <div class="ind-top">
+            <svg viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="ind3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0C2340"/><stop offset="100%" stop-color="#164066"/></linearGradient></defs>
+              <rect width="400" height="150" fill="url(#ind3)"/>
+              <path d="M0 118 H400" stroke="rgba(0,212,255,0.28)" stroke-width="2"/>
+              <g stroke="rgba(0,212,255,0.4)" stroke-width="2" fill="none" stroke-linecap="round">
+                <path d="M140 118 V50 M260 118 V50 M140 50 H260 M170 50 V118 M200 50 V118 M230 50 V118"/>
+                <path d="M200 50 L200 24 L232 24"/>
+              </g>
+              <rect x="228" y="16" width="14" height="16" rx="3" fill="#22E0C8" opacity="0.6"/>
+              <circle cx="300" cy="88" r="5" fill="#00D4FF" opacity="0.7"/>
+              <circle cx="340" cy="70" r="4" fill="#22E0C8" opacity="0.6"/>
+              <path d="M300 88 H340" stroke="rgba(0,212,255,0.3)" stroke-width="1.4" stroke-dasharray="4 5"/>
+            </svg>
+          </div>
+          <div class="ind-body">
+            <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7l5.7 5.6a8 8 0 1 1-11.4 0z"/></svg> Oil &amp; Gas</h3>
+            <p>Pipeline monitoring, safety systems and remote operations for upstream, midstream and downstream assets.</p>
+          </div>
+        </div>
+
+        <!-- Smart Cities -->
+        <div class="ind-card reveal">
+          <div class="ind-top">
+            <svg viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="ind4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0C2340"/><stop offset="100%" stop-color="#164066"/></linearGradient></defs>
+              <rect width="400" height="150" fill="url(#ind4)"/>
+              <g fill="rgba(0,212,255,0.20)" stroke="rgba(0,212,255,0.42)" stroke-width="1.4">
+                <rect x="60" y="70" width="42" height="66" rx="4"/>
+                <rect x="118" y="44" width="46" height="92" rx="4"/>
+                <rect x="180" y="84" width="38" height="52" rx="4"/>
+                <rect x="234" y="56" width="50" height="80" rx="4"/>
+                <rect x="300" y="92" width="40" height="44" rx="4"/>
+              </g>
+              <g fill="#22E0C8" opacity="0.55">
+                <rect x="126" y="56" width="8" height="8" rx="2"/><rect x="146" y="56" width="8" height="8" rx="2"/>
+                <rect x="126" y="76" width="8" height="8" rx="2"/><rect x="146" y="76" width="8" height="8" rx="2"/>
+                <rect x="242" y="68" width="8" height="8" rx="2"/><rect x="262" y="68" width="8" height="8" rx="2"/>
+              </g>
+            </svg>
+          </div>
+          <div class="ind-body">
+            <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M9 6h.01M15 6h.01M9 10h.01M15 10h.01M9 14h.01M15 14h.01"/></svg> Smart Cities</h3>
+            <p>Infrastructure monitoring, traffic management and environmental sensing for connected urban environments.</p>
+          </div>
+        </div>
+
+        <!-- Logistics -->
+        <div class="ind-card reveal">
+          <div class="ind-top">
+            <svg viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="ind5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0C2340"/><stop offset="100%" stop-color="#164066"/></linearGradient></defs>
+              <rect width="400" height="150" fill="url(#ind5)"/>
+              <path d="M0 112 H400" stroke="rgba(0,212,255,0.28)" stroke-width="2"/>
+              <g fill="rgba(0,212,255,0.18)" stroke="rgba(0,212,255,0.5)" stroke-width="1.8">
+                <rect x="96" y="66" width="76" height="42" rx="5"/>
+                <path d="M172 78 h34 l20 18 v12 h-54 z"/>
+              </g>
+              <circle cx="126" cy="112" r="11" fill="none" stroke="#22E0C8" stroke-width="2.6"/>
+              <circle cx="196" cy="112" r="11" fill="none" stroke="#22E0C8" stroke-width="2.6"/>
+              <g stroke="rgba(34,224,200,0.4)" stroke-width="1.5" fill="none" stroke-dasharray="5 6">
+                <path d="M290 60 q22 -22 44 0 q22 22 44 0"/>
+              </g>
+              <circle cx="290" cy="60" r="4" fill="#00D4FF" opacity="0.7"/>
+              <circle cx="378" cy="60" r="4" fill="#00D4FF" opacity="0.7"/>
+            </svg>
+          </div>
+          <div class="ind-body">
+            <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Logistics &amp; Supply Chain</h3>
+            <p>Fleet tracking, warehouse automation and cold-chain monitoring for end-to-end visibility.</p>
+          </div>
+        </div>
+
+        <!-- Water -->
+        <div class="ind-card reveal">
+          <div class="ind-top">
+            <svg viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="ind6" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0C2340"/><stop offset="100%" stop-color="#164066"/></linearGradient></defs>
+              <rect width="400" height="150" fill="url(#ind6)"/>
+              <g stroke="rgba(0,212,255,0.35)" stroke-width="2" fill="none" stroke-linecap="round">
+                <path d="M0 96 q34 -18 68 0 t68 0 t68 0 t68 0 t68 0 t68 0"/>
+                <path d="M0 118 q34 -18 68 0 t68 0 t68 0 t68 0 t68 0 t68 0" opacity="0.6"/>
+              </g>
+              <path d="M200 24 l22 30 a26 26 0 1 1-44 0 z" fill="rgba(34,224,200,0.22)" stroke="#22E0C8" stroke-width="2.2" stroke-linejoin="round"/>
+              <path d="M188 62 a12 12 0 0 0 12 12" stroke="#00D4FF" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="ind-body">
+            <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7l5.7 5.6a8 8 0 1 1-11.4 0z"/></svg> Water &amp; Wastewater</h3>
+            <p>Remote monitoring, leak detection and treatment process optimization for water networks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+  <section class="section bg-navy light-text">
+    <div class="container">
+      <div class="split">
+        <div class="reveal">
+          <span class="eyebrow light">Why Hosen AI Systems</span>
+          <h2>Your Partner in Industrial Digitization</h2>
+          <p style="margin-top:18px;max-width:520px">
+            We combine deep industrial domain knowledge with modern digital engineering to deliver
+            outcomes that hold up in the real world — not just in the lab.
+          </p>
+
+          <ul class="check-list" style="margin-top:34px">
+            <li>
+              <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><strong style="color:#fff">Proven Expertise</strong><span style="color:#9FB6CE">Years of hands-on OT and IoT delivery across multiple industries.</span></span>
+            </li>
+            <li>
+              <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><strong style="color:#fff">End-to-End Delivery</strong><span style="color:#9FB6CE">From strategy and design through deployment and managed services.</span></span>
+            </li>
+            <li>
+              <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><strong style="color:#fff">Local Presence, Global Standards</strong><span style="color:#9FB6CE">Headquartered in UAE, serving the region with world-class engineering.</span></span>
+            </li>
+            <li>
+              <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><strong style="color:#fff">24/7 Support</strong><span style="color:#9FB6CE">Technical advisors and solution architects available around the clock.</span></span>
+            </li>
+            <li>
+              <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><strong style="color:#fff">Vendor-Agnostic Approach</strong><span style="color:#9FB6CE">We recommend the best-fit technology for your needs — not ours.</span></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="split-media reveal">
+          <svg viewBox="0 0 520 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="wc1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#00D4FF"/><stop offset="100%" stop-color="#22E0C8"/>
+              </linearGradient>
+            </defs>
+            <circle cx="260" cy="210" r="150" stroke="rgba(0,212,255,0.16)" stroke-width="1.5" fill="none"/>
+            <circle cx="260" cy="210" r="108" stroke="rgba(0,212,255,0.22)" stroke-width="1.5" fill="none"/>
+            <circle cx="260" cy="210" r="66" stroke="rgba(0,212,255,0.3)" stroke-width="1.5" fill="none"/>
+
+            <circle cx="260" cy="210" r="42" fill="url(#wc1)" opacity="0.14"/>
+            <circle cx="260" cy="210" r="42" stroke="url(#wc1)" stroke-width="2.4" fill="none"/>
+            <path d="M260 190 L278 200 V222 L260 232 L242 222 V200 Z" stroke="#00D4FF" stroke-width="2.2" fill="rgba(0,212,255,0.15)"/>
+            <circle cx="260" cy="211" r="4" fill="#22E0C8"/>
+
+            <g fill="#0C2340" stroke="#00D4FF" stroke-width="2">
+              <circle cx="260" cy="60" r="9"/>
+              <circle cx="410" cy="210" r="9"/>
+              <circle cx="260" cy="360" r="9"/>
+              <circle cx="110" cy="210" r="9"/>
+            </g>
+            <g fill="#22E0C8" opacity="0.75">
+              <circle cx="378" cy="120" r="6"/><circle cx="378" cy="300" r="6"/>
+              <circle cx="142" cy="300" r="6"/><circle cx="142" cy="120" r="6"/>
+            </g>
+            <g stroke="rgba(0,212,255,0.3)" stroke-width="1.4">
+              <path d="M260 69 V168 M401 210 H302 M260 351 V252 M119 210 H218"/>
+              <path d="M378 120 L296 174 M378 300 L296 246 M142 300 L224 246 M142 120 L224 174" stroke-dasharray="4 5"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-band reveal">
+        <div>
+          <h2>Let's Build Your Digitization Roadmap</h2>
+          <p>Tell us about your operational challenges and we'll show you what a connected, intelligent
+             industrial environment looks like for your business.</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#contact" onclick="navigate('contact');return false;">
+            Start the Conversation
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-home -->
+
+
+<!-- ============================================================
+     PAGE: ABOUT
+     ============================================================ -->
+<div class="page" id="page-about">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="crumb">About Us</span>
+      <h1>Innovating Digitization Solutions</h1>
+      <p>We exist to close the gap between the plant floor and the digital enterprise — securely,
+         reliably and at scale.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div class="reveal">
+          <span class="eyebrow">Who We Are</span>
+          <h2>Where Operational Technology Meets the Internet of Things</h2>
+          <p style="margin-top:18px">
+            Hosen AI Systems is at the forefront of developing next-generation digitization solutions.
+            Our focus on Operational Technology (OT) and the Internet of Things (IoT) redefines
+            how industries operate — connecting legacy systems with modern intelligence to unlock
+            efficiency, visibility and control.
+          </p>
+          <p style="margin-top:16px">
+            From our base in UAE, we serve manufacturers, utilities, energy operators, logistics
+            providers and smart-city programmes across the Middle East and beyond. Our teams blend
+            industrial engineering discipline with modern software, cloud and data practice.
+          </p>
+          <p style="margin-top:16px">
+            We don't sell boxes. We design, integrate and operate connected industrial systems that
+            have to work in heat, dust, vibration and continuous duty — because that's where our
+            clients actually operate.
+          </p>
+        </div>
+
+        <div class="split-media reveal">
+          <svg viewBox="0 0 520 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="abt1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#00D4FF"/><stop offset="100%" stop-color="#22E0C8"/>
+              </linearGradient>
+              <linearGradient id="abt2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0C2340"/><stop offset="100%" stop-color="#123153"/>
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="520" height="420" rx="24" fill="#F4F8FC"/>
+            <rect x="40" y="56" width="440" height="308" rx="18" fill="#fff" stroke="#E3EAF2" stroke-width="1.5"/>
+
+            <rect x="70" y="88" width="120" height="10" rx="5" fill="#0C2340"/>
+            <rect x="70" y="110" width="80" height="8" rx="4" fill="#DCE6F0"/>
+
+            <rect x="70" y="148" width="180" height="86" rx="12" fill="#F4F8FC"/>
+            <rect x="90" y="172" width="52" height="8" rx="4" fill="#00D4FF"/>
+            <rect x="90" y="192" width="120" height="20" rx="6" fill="#DCE6F0"/>
+
+            <rect x="270" y="148" width="180" height="86" rx="12" fill="#F4F8FC"/>
+            <rect x="290" y="172" width="52" height="8" rx="4" fill="#22E0C8"/>
+            <rect x="290" y="192" width="120" height="20" rx="6" fill="#DCE6F0"/>
+
+            <rect x="70" y="256" width="380" height="76" rx="12" fill="url(#abt2)"/>
+            <path d="M100 312 L150 288 L200 300 L250 266 L300 282 L350 250 L420 268"
+                  stroke="url(#abt1)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="#0C2340" stroke="#00D4FF" stroke-width="2.2">
+              <circle cx="150" cy="288" r="4.5"/><circle cx="250" cy="266" r="4.5"/><circle cx="350" cy="250" r="4.5"/>
+            </g>
+
+            <circle cx="452" cy="88" r="26" fill="none" stroke="url(#abt1)" stroke-width="2.4"/>
+            <path d="M452 74 l12 7 v14 l-12 7 -12 -7 v-14 z" stroke="#00D4FF" stroke-width="2" fill="rgba(0,212,255,0.12)"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION / VISION / VALUES -->
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow center-line">Our Foundation</span>
+        <h2>Mission, Vision &amp; Values</h2>
+      </div>
+
+      <div class="grid g-3">
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <h3>Our Mission</h3>
+          <p>To empower organizations with secure, scalable and future-ready OT/IoT solutions that drive
+             operational excellence and measurable business outcomes.</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3>Our Vision</h3>
+          <p>To be the leading partner for industrial digitization across the Middle East and beyond,
+             enabling a smarter, more connected and more sustainable world.</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></div>
+          <h3>Our Values</h3>
+          <p>Engineering integrity, operational empathy, security by default and relentless
+             accountability for the outcomes we deliver in the field.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow center-line">Our Approach</span>
+        <h2>A Proven Path from Assessment to Operations</h2>
+        <p class="lead" style="margin-top:16px">
+          Every engagement follows a structured method that de-risks deployment and accelerates
+          time-to-value.
+        </p>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-num">01</div>
+          <h4>Discover &amp; Assess</h4>
+          <p>We map your existing OT landscape, data sources, constraints and business objectives.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">02</div>
+          <h4>Design &amp; Architect</h4>
+          <p>We define the target architecture, security model, connectivity strategy and success metrics.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">03</div>
+          <h4>Deploy &amp; Integrate</h4>
+          <p>We roll out edge devices, gateways and platforms with minimal disruption to operations.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">04</div>
+          <h4>Operate &amp; Optimize</h4>
+          <p>We monitor, support and continuously improve the ecosystem against agreed KPIs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="cta-band reveal">
+        <div>
+          <h2>Ready to Modernize Your Operations?</h2>
+          <p>Let's discuss where digitization can deliver the fastest, most durable impact in your environment.</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#contact" onclick="navigate('contact');return false;">
+            Contact Our Team
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-about -->
+
+
+<!-- ============================================================
+     PAGE: SERVICES
+     ============================================================ -->
+<div class="page" id="page-services">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="crumb">Services</span>
+      <h1>Next-Generation Digitization Solutions</h1>
+      <p>Strategy, integration, edge, analytics, security and managed operations — delivered as one
+         accountable programme.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="svc reveal">
+        <div class="svc-num">01</div>
+        <div class="svc-body">
+          <h3>OT/IoT Consulting &amp; Strategy</h3>
+          <p>
+            We help you decide what to digitize, in what order and with which technology. Our
+            consultants assess your existing operational technology landscape, identify high-value
+            use cases and produce a pragmatic, phased roadmap that balances quick wins with
+            long-term architecture.
+          </p>
+          <div class="tags">
+            <span class="tag">Digital Maturity Assessment</span>
+            <span class="tag">Use-Case Prioritization</span>
+            <span class="tag">Reference Architecture</span>
+            <span class="tag">ROI Modelling</span>
+            <span class="tag">Technology Selection</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc reveal">
+        <div class="svc-num">02</div>
+        <div class="svc-body">
+          <h3>System Integration</h3>
+          <p>
+            Legacy PLCs, SCADA systems and historians Hosenely speak the same language as modern
+            cloud platforms. We build the connective tissue — protocol translation, data
+            normalization, API layers and enterprise integration — so that operational data flows
+            reliably into the systems that need it.
+          </p>
+          <div class="tags">
+            <span class="tag">SCADA / PLC Integration</span>
+            <span class="tag">Modbus · OPC-UA · DNP3</span>
+            <span class="tag">Historian Connectivity</span>
+            <span class="tag">ERP / MES Integration</span>
+            <span class="tag">API &amp; Middleware</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc reveal">
+        <div class="svc-num">03</div>
+        <div class="svc-body">
+          <h3>Edge Computing &amp; Connectivity</h3>
+          <p>
+            Not all data needs to travel to the cloud. We deploy industrial-grade edge gateways and
+            routers that filter, buffer and process data locally — ensuring deterministic response
+            times and resilience even when WAN links fail. Connectivity options span 4G, 5G,
+            private LTE and industrial Wi-Fi.
+          </p>
+          <div class="tags">
+            <span class="tag">Industrial Gateways</span>
+            <span class="tag">Edge Analytics</span>
+            <span class="tag">5G &amp; Private LTE</span>
+            <span class="tag">Rugged Routers</span>
+            <span class="tag">Dual-WAN Failover</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc reveal">
+        <div class="svc-num">04</div>
+        <div class="svc-body">
+          <h3>Data Analytics &amp; AI</h3>
+          <p>
+            Operational data only creates value when it changes a decision. We build pipelines,
+            dashboards and machine-learning models that surface anomalies early, predict equipment
+            failure and uncover the process inefficiencies that traditional reporting misses.
+          </p>
+          <div class="tags">
+            <span class="tag">Predictive Maintenance</span>
+            <span class="tag">Anomaly Detection</span>
+            <span class="tag">Quality Analytics</span>
+            <span class="tag">Digital Twins</span>
+            <span class="tag">Executive Dashboards</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc reveal">
+        <div class="svc-num">05</div>
+        <div class="svc-body">
+          <h3>Cybersecurity for OT</h3>
+          <p>
+            Connecting OT to IT expands the attack surface. We design segmented, zero-trust
+            architectures with continuous monitoring, secure remote access and incident response
+            playbooks built specifically for industrial control environments — where availability
+            is non-negotiable.
+          </p>
+          <div class="tags">
+            <span class="tag">ICS / SCADA Security</span>
+            <span class="tag">Network Segmentation</span>
+            <span class="tag">Secure Remote Access</span>
+            <span class="tag">OT Monitoring</span>
+            <span class="tag">Compliance &amp; Auditing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc reveal">
+        <div class="svc-num">06</div>
+        <div class="svc-body">
+          <h3>Managed IoT Services</h3>
+          <p>
+            Once deployed, your IoT estate needs to be provisioned, patched, monitored and
+            supported. We take that burden off your IT and OT teams with 24/7 monitoring, SLA-backed
+            response and lifecycle management across every device and platform in the ecosystem.
+          </p>
+          <div class="tags">
+            <span class="tag">Device Lifecycle Management</span>
+            <span class="tag">24/7 Monitoring</span>
+            <span class="tag">SLA-Backed Support</span>
+            <span class="tag">Firmware &amp; Patch Management</span>
+            <span class="tag">Connectivity Management</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow center-line">Engagement Model</span>
+        <h2>How We Work With You</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-num">01</div>
+          <h4>Discovery Workshop</h4>
+          <p>A structured session with your operations, engineering and IT stakeholders.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">02</div>
+          <h4>Solution Blueprint</h4>
+          <p>A documented architecture, bill of materials, timeline and commercial proposal.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">03</div>
+          <h4>Pilot Deployment</h4>
+          <p>A contained proof of value on a single line, site or asset before full rollout.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">04</div>
+          <h4>Scale &amp; Support</h4>
+          <p>Enterprise-wide rollout backed by managed services and continuous optimization.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band reveal">
+        <div>
+          <h2>Need a Solution Scoped?</h2>
+          <p>Send us your requirements and we'll come back with a tailored architecture and delivery plan.</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#contact" onclick="navigate('contact');return false;">
+            Request a Proposal
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-services -->
+
+
+<!-- ============================================================
+     PAGE: INDUSTRIES
+     ============================================================ -->
+<div class="page" id="page-industries">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="crumb">Industries</span>
+      <h1>Digitizing Critical Industries</h1>
+      <p>We work in environments where reliability, safety and uptime are measured in production
+         hours — not percentages.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid g-2">
+
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20V9l-6 4V9l-6 4V4H2z"/><path d="M6 20v-4M11 20v-4M16 20v-4"/></svg></div>
+          <h3>Manufacturing</h3>
+          <p>
+            Connect machines, lines and plants into a single operational view. We deploy edge
+            gateways on the shop floor, integrate with PLCs and MES systems, and build the analytics
+            that catch quality drift and equipment degradation before they become scrap or downtime.
+          </p>
+          <div class="tags" style="margin-top:18px">
+            <span class="tag">Smart Factory</span>
+            <span class="tag">OEE Monitoring</span>
+            <span class="tag">Predictive Maintenance</span>
+            <span class="tag">Quality Analytics</span>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <h3>Energy &amp; Utilities</h3>
+          <p>
+            Monitor substations, transformers, feeders and distributed generation assets remotely.
+            We provide secure connectivity to remote sites, real-time telemetry and analytics that
+            support both grid stability and outage response.
+          </p>
+          <div class="tags" style="margin-top:18px">
+            <span class="tag">Grid Monitoring</span>
+            <span class="tag">Smart Metering</span>
+            <span class="tag">Remote Assets</span>
+            <span class="tag">Renewables</span>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7l5.7 5.6a8 8 0 1 1-11.4 0z"/></svg></div>
+          <h3>Oil &amp; Gas</h3>
+          <p>
+            From wellhead to refinery, we deliver ruggedized connectivity and monitoring for
+            pipelines, pump stations and processing facilities — including safety-critical systems
+            that must operate in hazardous and remote conditions.
+          </p>
+          <div class="tags" style="margin-top:18px">
+            <span class="tag">Pipeline Monitoring</span>
+            <span class="tag">Safety Systems</span>
+            <span class="tag">Remote Operations</span>
+            <span class="tag">Hazardous Areas</span>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M9 6h.01M15 6h.01M9 10h.01M15 10h.01M9 14h.01M15 14h.01"/></svg></div>
+          <h3>Smart Cities</h3>
+          <p>
+            Connected infrastructure for the modern city — environmental sensing, traffic and
+            mobility data, street lighting control and utility monitoring, all feeding a unified
+            municipal platform.
+          </p>
+          <div class="tags" style="margin-top:18px">
+            <span class="tag">Infrastructure Monitoring</span>
+            <span class="tag">Traffic Management</span>
+            <span class="tag">Environmental Sensing</span>
+            <span class="tag">Smart Lighting</span>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <h3>Logistics &amp; Supply Chain</h3>
+          <p>
+            Real-time visibility across fleets, warehouses and cold chains. We connect vehicles,
+            containers and handling equipment to give operations teams live location, condition and
+            exception data.
+          </p>
+          <div class="tags" style="margin-top:18px">
+            <span class="tag">Fleet Telematics</span>
+            <span class="tag">Warehouse Automation</span>
+            <span class="tag">Cold-Chain Monitoring</span>
+            <span class="tag">Asset Tracking</span>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7l5.7 5.6a8 8 0 1 1-11.4 0z"/><path d="M8 14a4 4 0 0 0 4 4"/></svg></div>
+          <h3>Water &amp; Wastewater</h3>
+          <p>
+            Instrument reservoirs, pump stations and treatment plants for remote monitoring, leak
+            detection and process optimization — reducing losses and energy consumption across the
+            network.
+          </p>
+          <div class="tags" style="margin-top:18px">
+            <span class="tag">Remote Monitoring</span>
+            <span class="tag">Leak Detection</span>
+            <span class="tag">Treatment Optimization</span>
+            <span class="tag">Network Pressure</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-navy light-text">
+    <div class="container">
+      <div class="section-head center light-text">
+        <span class="eyebrow light center-line">Common Thread</span>
+        <h2>One Platform Philosophy, Many Environments</h2>
+        <p class="lead" style="margin:0 auto;color:#A8BED6">
+          Whatever the vertical, the underlying requirements are the same: secure connectivity,
+          ruggedized hardware, reliable data and insight that reaches the right person at the right time.
+        </p>
+      </div>
+
+      <div class="grid g-4">
+        <div class="card card-dark reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></svg></div>
+          <h3>Rugged Hardware</h3>
+          <p>Built for extreme temperature, vibration and continuous duty.</p>
+        </div>
+        <div class="card card-dark reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <h3>Any Connectivity</h3>
+          <p>4G, 5G, private LTE, Wi-Fi, fibre and satellite backhaul.</p>
+        </div>
+        <div class="card card-dark reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Security by Default</h3>
+          <p>Encrypted transport, segmented networks and hardened endpoints.</p>
+        </div>
+        <div class="card card-dark reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <h3>Actionable Insight</h3>
+          <p>Dashboards, alerts and models your teams will actually use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band reveal">
+        <div>
+          <h2>Don't See Your Industry?</h2>
+          <p>Our architecture principles apply wherever operational assets need to be monitored,
+             controlled and optimized. Tell us about your environment.</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#contact" onclick="navigate('contact');return false;">
+            Discuss Your Project
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-industries -->
+
+
+<!-- ============================================================
+     PAGE: TECHNOLOGY
+     ============================================================ -->
+<div class="page" id="page-technology">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="crumb">Technology</span>
+      <h1>Technologies We Master</h1>
+      <p>A vendor-agnostic toolkit spanning the edge, the network, the cloud and the analytics
+         layer — assembled to fit your environment, not ours.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid g-4">
+
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></div>
+          <h3>Edge Computing</h3>
+          <p>Real-time processing at the source — filtering, buffering and inference on the plant floor.</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <h3>Industrial IoT Platforms</h3>
+          <p>Scalable, secure device management and data orchestration across distributed estates.</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+          <h3>Cloud Integration</h3>
+          <p>AWS, Azure and Google Cloud — hybrid and multi-cloud architectures for operational data.</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div>
+          <h3>AI &amp; Machine Learning</h3>
+          <p>Predictive maintenance, anomaly detection and process optimization models.</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg></div>
+          <h3>5G &amp; Private Networks</h3>
+          <p>Low-latency industrial connectivity for mobility, robotics and dense sensor fleets.</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12l8.73-5.04M12 22V12"/></svg></div>
+          <h3>Digital Twins</h3>
+          <p>Simulation and optimization of physical assets before committing to change.</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></svg></div>
+          <h3>SCADA &amp; PLC Integration</h3>
+          <p>Bridging legacy control systems with modern data platforms and protocols.</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <h3>Blockchain for Supply Chain</h3>
+          <p>Traceability, provenance and trust across multi-party supply networks.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECURITY -->
+  <section class="section bg-navy light-text">
+    <div class="container">
+      <div class="split">
+        <div class="split-media reveal">
+          <svg viewBox="0 0 500 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="sec1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#00D4FF"/><stop offset="100%" stop-color="#22E0C8"/>
+              </linearGradient>
+            </defs>
+            <circle cx="250" cy="200" r="160" stroke="rgba(0,212,255,0.12)" stroke-width="1.5" fill="none"/>
+            <circle cx="250" cy="200" r="118" stroke="rgba(0,212,255,0.18)" stroke-width="1.5" fill="none" stroke-dasharray="8 8"/>
+            <circle cx="250" cy="200" r="76" stroke="rgba(0,212,255,0.26)" stroke-width="1.5" fill="none"/>
+
+            <path d="M250 130 L310 160 V230 C310 280 250 310 250 310 C250 310 190 280 190 230 V160 Z"
+                  fill="rgba(0,212,255,0.10)" stroke="url(#sec1)" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M228 218 l16 16 30 -34" stroke="#22E0C8" stroke-width="4" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+
+            <g fill="#0C2340" stroke="#00D4FF" stroke-width="2">
+              <circle cx="250" cy="42" r="8"/><circle cx="412" cy="200" r="8"/>
+              <circle cx="250" cy="358" r="8"/><circle cx="88" cy="200" r="8"/>
+            </g>
+            <g stroke="rgba(0,212,255,0.28)" stroke-width="1.5">
+              <path d="M250 50 V128 M404 200 H312 M250 350 V312 M96 200 H188"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="reveal">
+          <span class="eyebrow light">Security</span>
+          <h2>Security Is Not a Layer — It's the Architecture</h2>
+          <p style="margin-top:18px;max-width:520px">
+            Industrial networks were designed for availability, not for a world of connected devices
+            and remote access. We rebuild that assumption from the ground up.
+          </p>
+
+          <ul class="check-list" style="margin-top:32px">
+            <li>
+              <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><strong style="color:#fff">Zero-Trust Segmentation</strong><span style="color:#9FB6CE">No implicit trust between OT zones, IT networks or remote users.</span></span>
+            </li>
+            <li>
+              <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><strong style="color:#fff">Encrypted Transport</strong><span style="color:#9FB6CE">TLS/IPsec across every WAN link, with certificate-based device identity.</span></span>
+            </li>
+            <li>
+              <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><strong style="color:#fff">Continuous Monitoring</strong><span style="color:#9FB6CE">Behavioural baselines and alerts for anomalous device or network activity.</span></span>
+            </li>
+            <li>
+              <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><strong style="color:#fff">Availability First</strong><span style="color:#9FB6CE">Controls designed so that a security incident never becomes a plant shutdown.</span></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band reveal">
+        <div>
+          <h2>Talk Technology With Us</h2>
+          <p>Our architects are happy to review your existing stack and recommend a pragmatic path forward.</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#contact" onclick="navigate('contact');return false;">
+            Book an Architecture Review
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-technology -->
+
+
+<!-- ============================================================
+     PAGE: INSIGHTS
+     ============================================================ -->
+<div class="page" id="page-insights">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="crumb">Insights</span>
+      <h1>Insights from Hosen AI Systems</h1>
+      <p>Perspectives on OT/IoT convergence, industrial security, edge computing and the practical
+         realities of digitizing critical operations.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid g-3">
+
+        <article class="post reveal">
+          <div class="post-img">
+            <svg viewBox="0 0 400 170" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="p1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0C2340"/><stop offset="100%" stop-color="#164066"/></linearGradient></defs>
+              <rect width="400" height="170" fill="url(#p1)"/>
+              <g stroke="rgba(0,212,255,0.3)" stroke-width="1.6" fill="none">
+                <path d="M40 130 V80 l26 16 V80 l26 16 V80 l26 16 V80 l26 16 V80 l26 16 V80 l26 16"/>
+              </g>
+              <path d="M40 60 H250" stroke="rgba(34,224,200,0.35)" stroke-width="1.5" stroke-dasharray="5 6"/>
+              <g fill="#00D4FF" opacity="0.6"><circle cx="90" cy="52" r="3.5"/><circle cx="170" cy="52" r="3.5"/><circle cx="250" cy="52" r="3.5"/></g>
+              <circle cx="320" cy="110" r="26" fill="none" stroke="rgba(0,212,255,0.4)" stroke-width="2"/>
+              <path d="M320 96 l12 7 v14 l-12 7 -12 -7 v-14 z" stroke="#00D4FF" stroke-width="1.8" fill="rgba(0,212,255,0.14)"/>
+            </svg>
+          </div>
+          <div class="post-body">
+            <div class="post-meta"><span>Manufacturing</span><span class="dot"></span><span>8 min read</span></div>
+            <h3>How OT and IoT Convergence Is Reshaping Manufacturing</h3>
+            <p>The line between the plant floor and the enterprise is dissolving. Here's what that means
+               for architecture, skills and operating models.</p>
+            <a class="card-link" href="#contact" onclick="navigate('contact');return false;">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </article>
+
+        <article class="post reveal">
+          <div class="post-img">
+            <svg viewBox="0 0 400 170" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="p2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0C2340"/><stop offset="100%" stop-color="#164066"/></linearGradient></defs>
+              <rect width="400" height="170" fill="url(#p2)"/>
+              <circle cx="200" cy="90" r="52" stroke="rgba(0,212,255,0.25)" stroke-width="1.6" fill="none" stroke-dasharray="6 7"/>
+              <path d="M200 48 L242 66 V114 C242 138 200 152 200 152 C200 152 158 138 158 114 V66 Z"
+                    fill="rgba(0,212,255,0.10)" stroke="#00D4FF" stroke-width="2.4" stroke-linejoin="round"/>
+              <path d="M186 98 l12 12 22 -26" stroke="#22E0C8" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <g fill="#00D4FF" opacity="0.5"><circle cx="60" cy="40" r="4"/><circle cx="340" cy="40" r="4"/><circle cx="60" cy="140" r="4"/><circle cx="340" cy="140" r="4"/></g>
+            </svg>
+          </div>
+          <div class="post-body">
+            <div class="post-meta"><span>Cybersecurity</span><span class="dot"></span><span>6 min read</span></div>
+            <h3>Securing Industrial Control Systems in the Age of IIoT</h3>
+            <p>Connecting SCADA to the cloud multiplies capability — and risk. A practical framework for
+               segmentation, monitoring and response.</p>
+            <a class="card-link" href="#contact" onclick="navigate('contact');return false;">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </article>
+
+        <article class="post reveal">
+          <div class="post-img">
+            <svg viewBox="0 0 400 170" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="p3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0C2340"/><stop offset="100%" stop-color="#164066"/></linearGradient></defs>
+              <rect width="400" height="170" fill="url(#p3)"/>
+              <rect x="70" y="52" width="70" height="66" rx="10" fill="rgba(0,212,255,0.10)" stroke="#00D4FF" stroke-width="2"/>
+              <rect x="260" y="40" width="80" height="90" rx="10" fill="rgba(34,224,200,0.10)" stroke="#22E0C8" stroke-width="2"/>
+              <path d="M140 85 H260" stroke="#00D4FF" stroke-width="2.4" stroke-dasharray="7 6" stroke-linecap="round"/>
+              <circle cx="200" cy="85" r="13" fill="#0C2340" stroke="#00D4FF" stroke-width="2.4"/>
+              <circle cx="200" cy="85" r="4" fill="#22E0C8"/>
+              <g fill="rgba(0,212,255,0.5)">
+                <rect x="86" y="70" width="38" height="5" rx="2.5"/><rect x="86" y="84" width="26" height="5" rx="2.5"/>
+                <rect x="278" y="58" width="44" height="5" rx="2.5"/><rect x="278" y="72" width="30" height="5" rx="2.5"/>
+              </g>
+            </svg>
+          </div>
+          <div class="post-body">
+            <div class="post-meta"><span>Edge</span><span class="dot"></span><span>7 min read</span></div>
+            <h3>The Role of Edge Computing in Smart Utilities</h3>
+            <p>Why utilities are pushing intelligence to the substation — and how to decide what belongs
+               at the edge versus the cloud.</p>
+            <a class="card-link" href="#contact" onclick="navigate('contact');return false;">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </article>
+
+        <article class="post reveal">
+          <div class="post-img">
+            <svg viewBox="0 0 400 170" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="p4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0C2340"/><stop offset="100%" stop-color="#164066"/></linearGradient></defs>
+              <rect width="400" height="170" fill="url(#p4)"/>
+              <path d="M40 130 L100 106 L160 118 L220 82 L280 96 L340 60"
+                    stroke="#00D4FF" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M40 130 L100 106 L160 118 L220 82 L280 96 L340 60 L340 150 L40 150 Z" fill="rgba(0,212,255,0.10)"/>
+              <g fill="#0C2340" stroke="#22E0C8" stroke-width="2.2">
+                <circle cx="100" cy="106" r="4.5"/><circle cx="220" cy="82" r="4.5"/><circle cx="340" cy="60" r="4.5"/>
+              </g>
+            </svg>
+          </div>
+          <div class="post-body">
+            <div class="post-meta"><span>Analytics</span><span class="dot"></span><span>5 min read</span></div>
+            <h3>From Dashboards to Decisions: Making OT Data Actionable</h3>
+            <p>Most industrial data programmes fail at the last mile. Here's how to design for decisions
+               rather than reports.</p>
+            <a class="card-link" href="#contact" onclick="navigate('contact');return false;">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </article>
+
+        <article class="post reveal">
+          <div class="post-img">
+            <svg viewBox="0 0 400 170" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="p5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0C2340"/><stop offset="100%" stop-color="#164066"/></linearGradient></defs>
+              <rect width="400" height="170" fill="url(#p5)"/>
+              <g stroke="rgba(0,212,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round">
+                <path d="M0 120 q34 -18 68 0 t68 0 t68 0 t68 0 t68 0 t68 0"/>
+              </g>
+              <circle cx="200" cy="60" r="24" fill="none" stroke="#22E0C8" stroke-width="2.4"/>
+              <path d="M200 44 l10 6 v12 l-10 6 -10 -6 v-12 z" stroke="#00D4FF" stroke-width="1.8" fill="rgba(0,212,255,0.14)"/>
+            </svg>
+          </div>
+          <div class="post-body">
+            <div class="post-meta"><span>Water</span><span class="dot"></span><span>6 min read</span></div>
+            <h3>Reducing Non-Revenue Water with IoT Monitoring</h3>
+            <p>How pressure and flow telemetry across a distribution network can cut losses without
+               replacing infrastructure.</p>
+            <a class="card-link" href="#contact" onclick="navigate('contact');return false;">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </article>
+
+        <article class="post reveal">
+          <div class="post-img">
+            <svg viewBox="0 0 400 170" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="p6" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0C2340"/><stop offset="100%" stop-color="#164066"/></linearGradient></defs>
+              <rect width="400" height="170" fill="url(#p6)"/>
+              <g stroke="rgba(0,212,255,0.22)" stroke-width="1.4" fill="none">
+                <path d="M60 120 V70 M120 120 V50 M180 120 V88 M240 120 V60 M300 120 V78 M360 120 V46"/>
+              </g>
+              <g fill="rgba(0,212,255,0.35)">
+                <rect x="52" y="70" width="16" height="50" rx="4"/>
+                <rect x="112" y="50" width="16" height="70" rx="4"/>
+                <rect x="172" y="88" width="16" height="32" rx="4"/>
+                <rect x="232" y="60" width="16" height="60" rx="4"/>
+                <rect x="292" y="78" width="16" height="42" rx="4"/>
+                <rect x="352" y="46" width="16" height="74" rx="4"/>
+              </g>
+              <rect x="232" y="60" width="16" height="60" rx="4" fill="#22E0C8" opacity="0.75"/>
+            </svg>
+          </div>
+          <div class="post-body">
+            <div class="post-meta"><span>Strategy</span><span class="dot"></span><span>9 min read</span></div>
+            <h3>Building a Business Case for Industrial Digitization</h3>
+            <p>A pragmatic framework for quantifying ROI on OT/IoT investments before you commit capital.</p>
+            <a class="card-link" href="#contact" onclick="navigate('contact');return false;">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="cta-band reveal">
+        <div>
+          <h2>Get Insights in Your Inbox</h2>
+          <p>Occasional articles on OT/IoT, industrial security and digitization — no noise, no spam.</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#contact" onclick="navigate('contact');return false;">
+            Subscribe
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-insights -->
+
+
+<!-- ============================================================
+     PAGE: CONTACT
+     ============================================================ -->
+<div class="page" id="page-contact">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="crumb">Contact</span>
+      <h1>Let's Build Your Digitization Roadmap</h1>
+      <p>We know that our clients have unique needs. Send us a message and we will get back to you soon.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <div class="reveal">
+          <span class="eyebrow">Get in Touch</span>
+          <h2 style="margin-bottom:26px">We're Here to Help</h2>
+
+          <div class="info-card">
+            <div class="info-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div>
+              <b>Head Office</b>
+              <span>Hosen AI Systems<br>Dubai, United Arab Emirates</span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 6l8 6 8-6"/></svg></div>
+            <div>
+              <b>Email</b>
+              <span>info@Hosen.me</span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></div>
+            <div>
+              <b>Phone</b>
+              <span>+971 545 </span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <div>
+              <b>Business Hours</b>
+              <span>Monday – Friday<br>9:00 AM – 5:00 PM (GST)</span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div>
+              <b>24/7 Technical Support</b>
+              <span>Available to clients under managed service agreements.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card reveal">
+          <div class="form-success" id="formSuccess">
+            ✓ Thank you. Your message has been received — a member of our team will be in touch shortly.
+          </div>
+
+          <h3 style="margin-bottom:8px">Send Us a Message</h3>
+          <p style="font-size:.92rem;margin-bottom:28px">Fields marked with <span style="color:var(--cyan-dk)">*</span> are required.</p>
+
+          <form id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="cf-name">Full Name <span class="req">*</span></label>
+                <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+              </div>
+              <div class="field">
+                <label for="cf-email">Email Address <span class="req">*</span></label>
+                <input type="email" id="cf-email" name="email" placeholder="you@company.com" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="cf-company">Company</label>
+                <input type="text" id="cf-company" name="company" placeholder="Company name">
+              </div>
+              <div class="field">
+                <label for="cf-phone">Phone</label>
+                <input type="tel" id="cf-phone" name="phone" placeholder="+971 545 595497">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="cf-interest">Area of Interest</label>
+              <select id="cf-interest" name="interest">
+                <option value="">Select a topic…</option>
+                <option>OT/IoT Consulting &amp; Strategy</option>
+                <option>System Integration</option>
+                <option>Edge Computing &amp; Connectivity</option>
+                <option>Data Analytics &amp; AI</option>
+                <option>Cybersecurity for OT</option>
+                <option>Managed IoT Services</option>
+                <option>General Enquiry</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="cf-message">Message <span class="req">*</span></label>
+              <textarea id="cf-message" name="message" placeholder="Tell us about your project, environment or challenge…" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%">
+              Send Message
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            </button>
+
+            <p class="form-note">
+              By submitting this form you agree that Hosen AI Systems may contact you regarding your enquiry.
+              We never share your details with third parties.
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION STRIP -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="cta-band reveal">
+        <div>
+          <h2>Based in UAE, Serving the Region</h2>
+          <p>Our team supports clients across the GCC and wider Middle East, with partner delivery
+             capability extending further afield.</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#services" onclick="navigate('services');return false;">
+            View Our Services
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-contact -->
+
+</main>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <a class="logo" href="#home" onclick="navigate('home');return false;">
+          <svg class="logo-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="lg2" x1="0" y1="0" x2="48" y2="48">
+                <stop offset="0%" stop-color="#00D4FF"/><stop offset="100%" stop-color="#22E0C8"/>
+              </linearGradient>
+            </defs>
+            <path d="M24 3 L42 13.5 V34.5 L24 45 L6 34.5 V13.5 Z" stroke="url(#lg2)" stroke-width="2.4" fill="rgba(0,212,255,0.07)"/>
+            <circle cx="24" cy="24" r="4.2" fill="url(#lg2)"/>
+            <circle cx="24" cy="11" r="2.4" fill="#00D4FF"/>
+            <circle cx="35.5" cy="30.5" r="2.4" fill="#22E0C8"/>
+            <circle cx="12.5" cy="30.5" r="2.4" fill="#00D4FF"/>
+            <path d="M24 11 V19.8 M27.6 26.3 L33.8 29.2 M20.4 26.3 L14.2 29.2" stroke="url(#lg2)" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <span class="logo-text">Hosen<em>Systems</em></span>
+        </a>
+        <p>Next generation digitization solutions for Operational Technology and the Internet of Things.</p>
+        <div class="socials">
+          <a href="#contact" onclick="navigate('contact');return false;" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.07-1.9-3.07-1.9 0-2.2 1.46-2.2 2.97V21H9z"/></svg>
+          </a>
+          <a href="#contact" onclick="navigate('contact');return false;" aria-label="X">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.1 8.1L23 22h-6.6l-5.2-6.8L5.3 22H2.2l7.6-8.7L1.6 2h6.7l4.7 6.2zm-1.1 18h1.7L7.3 3.8H5.5z"/></svg>
+          </a>
+          <a href="#contact" onclick="navigate('contact');return false;" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.8-.5-5.6a2.9 2.9 0 0 0-2-2C18.7 4 12 4 12 4s-6.7 0-8.5.4a2.9 2.9 0 0 0-2 2C1 8.2 1 12 1 12s0 3.8.5 5.6a2.9 2.9 0 0 0 2 2C5.3 20 12 20 12 20s6.7 0 8.5-.4a2.9 2.9 0 0 0 2-2C23 15.8 23 12 23 12zM10 15.5v-7l6 3.5z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#home" onclick="navigate('home');return false;">Home</a></li>
+          <li><a href="#about" onclick="navigate('about');return false;">About Us</a></li>
+          <li><a href="#technology" onclick="navigate('technology');return false;">Technology</a></li>
+          <li><a href="#insights" onclick="navigate('insights');return false;">Insights</a></li>
+          <li><a href="#contact" onclick="navigate('contact');return false;">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services" onclick="navigate('services');return false;">Consulting &amp; Strategy</a></li>
+          <li><a href="#services" onclick="navigate('services');return false;">System Integration</a></li>
+          <li><a href="#services" onclick="navigate('services');return false;">Edge &amp; Connectivity</a></li>
+          <li><a href="#services" onclick="navigate('services');return false;">Data Analytics &amp; AI</a></li>
+          <li><a href="#services" onclick="navigate('services');return false;">OT Cybersecurity</a></li>
+          <li><a href="#services" onclick="navigate('services');return false;">Managed IoT Services</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <address>
+          Hosen AI Systems<br>
+          Dubai, United Arab Emirates<br><br>
+          <a href="#contact" onclick="navigate('contact');return false;">info@Hosen.me</a><br>
+          +966 545 595497<br><br>
+          Mon – Fri · 9:00 AM – 5:00 PM (GST)
+        </address>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Hosen AI Systems. All rights reserved.</span>
+      <div class="footer-legal">
+        <a href="#contact" onclick="navigate('contact');return false;">Privacy Policy</a>
+        <a href="#contact" onclick="navigate('contact');return false;">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     SCRIPT
+     ============================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  var TITLES = {
+    home:       'Hosen AI Systems — Next Generation Digitization Solutions for OT & IoT',
+    about:      'About Us — Hosen AI Systems',
+    services:   'Services — Hosen AI Systems',
+    industries: 'Industries — Hosen AI Systems',
+    technology: 'Technology — Hosen AI Systems',
+    insights:   'Insights — Hosen AI Systems',
+    contact:    'Contact Us — Hosen AI Systems'
+  };
+
+  var nav       = document.getElementById('nav');
+  var menuBtn   = document.getElementById('menuBtn');
+  var navLinks  = document.querySelectorAll('.nav a[data-page]');
+  var pages     = document.querySelectorAll('.page');
+
+  /* ---------- Router ---------- */
+  function navigate(page, push) {
+    var target = document.getElementById('page-' + page);
+    if (!target) { page = 'home'; target = document.getElementById('page-home'); }
+
+    for (var i = 0; i < pages.length; i++) pages[i].classList.remove('active');
+    target.classList.add('active');
+
+    for (var j = 0; j < navLinks.length; j++) {
+      navLinks[j].classList.toggle('active', navLinks[j].getAttribute('data-page') === page);
+    }
+
+    window.scrollTo(0, 0);
+    nav.classList.remove('open');
+    menuBtn.classList.remove('open');
+
+    if (push !== false) {
+      if (history.replaceState) history.replaceState(null, '', '#' + page);
+      else location.hash = page;
+    }
+    document.title = TITLES[page] || TITLES.home;
+
+    /* Re-run reveal observer for newly visible content */
+    requestAnimationFrame(observeReveals);
+  }
+  window.navigate = navigate;
+
+  /* ---------- Mobile menu ---------- */
+  menuBtn.addEventListener('click', function () {
+    nav.classList.toggle('open');
+    menuBtn.classList.toggle('open');
+  });
+
+  /* ---------- Close menu on outside click ---------- */
+  document.addEventListener('click', function (e) {
+    if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
+      nav.classList.remove('open');
+      menuBtn.classList.remove('open');
+    }
+  });
+
+  /* ---------- Hash routing ---------- */
+  window.addEventListener('hashchange', function () {
+    var p = location.hash.replace('#', '') || 'home';
+    navigate(p, false);
+  });
+
+  /* ---------- Scroll reveal ---------- */
+  var observer = null;
+  if ('IntersectionObserver' in window) {
+    observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  }
+
+  function observeReveals() {
+    var els = document.querySelectorAll('.reveal:not(.in)');
+    if (!observer) {
+      for (var i = 0; i < els.length; i++) els[i].classList.add('in');
+      return;
+    }
+    for (var k = 0; k < els.length; k++) observer.observe(els[k]);
+  }
+
+  /* ---------- Contact form ---------- */
+  var form = document.getElementById('contactForm');
+  var success = document.getElementById('formSuccess');
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var name    = document.getElementById('cf-name');
+      var email   = document.getElementById('cf-email');
+      var message = document.getElementById('cf-message');
+      var valid   = true;
+
+      [name, email, message].forEach(function (f) {
+        f.style.borderColor = '';
+        if (!f.value.trim()) { f.style.borderColor = '#FF6B6B'; valid = false; }
+      });
+
+      if (email.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+        email.style.borderColor = '#FF6B6B';
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      success.classList.add('show');
+      form.reset();
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      setTimeout(function () { success.classList.remove('show'); }, 9000);
+    });
+  }
+
+  /* ---------- Year ---------- */
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  /* ---------- Init ---------- */
+  var initial = location.hash.replace('#', '') || 'home';
+  navigate(initial, false);
+  observeReveals();
+
+})();
+</script>
+
+</body>
+</html>
